@@ -15,14 +15,37 @@ The goal of problem 1 is to explore variable types and coercion.
 
 ## Part 1: Naming Variables and Creation of Data Frame
 
-The following variables and corresponding interpretation will be considered for Problem 1: 
+The following variables and corresponding interpretation will be considered for Problem 1. For this example, fruit types and condition (Good or Bad) were used:
 
 Variable Name  |  Definition
 ---------------|---------------------------------------------------------
 **uniform_dist**| A random sample of size 10 from uniform [0,5] distribution
-**vec_logical** | A logical vector indicating whether elements of the sample are greater than 2
-**vec_char** | A length-10 character vector
-**vec_factor** | A length-10 factor vector
+**greater_than_two** | A logical vector indicating whether elements of the sample are greater than 2
+**fruit_type** | A length-10 character vector for fruit type
+**fruit_condition** | A length-10 factor vector for fruit condition: "Bad" or "Good"
+
+Next, a **data frame** was created containing the variables listed above:
+
+```{r include = FALSE}
+# Load relevant package
+
+library(tidyverse)
+
+```
+
+```{r}
+# Seed is set to ensure reproducibility 
+set.seed(1234)
+
+# Create data frame 
+problem_1_df = tibble (
+  uniform_dist = runif(10, min = 0, max = 5),
+  greater_than_two = uniform_dist > 2,
+  fruit_type = c("Apple","Orange","Grape","Pear","Kiwi","Banana","Berry","Cherry","Peach","Mango"),
+  fruit_condition = factor(c("Good","Bad","Bad","Good","Bad","Good","Good","Good","Good","Bad"))
+)
+
+```
 
 
 ## Part 2: Conversion of variables to different types
