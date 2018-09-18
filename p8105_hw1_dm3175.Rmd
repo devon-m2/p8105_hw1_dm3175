@@ -124,26 +124,30 @@ problem_2_df = tibble (
 
 ```
 
-The data frame contains `r nrow(problem_2_df)*ncol(problem_2_df)` total observations, with `r nrow(problem_2_df)` rows and `r ncol(problem_2_df)` columns. The mean of `x` is `r mean(problem_2_df$x)` and the median of `x` is `r median(problem_2_df$x)`. The proportion of cases for which the logical vector `vec_logical` is TRUE is `r mean(problem_2_df$vec_logical)`.
+The data frame contains `r nrow(problem_2_df)` rows and `r ncol(problem_2_df)` columns. The mean of `x` is `r mean(problem_2_df$x)` and the median of `x` is `r median(problem_2_df$x)`. The proportion of cases for which the logical vector `vec_logical` is TRUE is `r mean(problem_2_df$vec_logical)`.
 
 ## Part 2: Scatterplots of Data Frame
 
 A scatterplot of `y` vs `x` was created that color points using `vec_logical`. This scatter plot was saved into the project directory. 
 
 ```{r Scatterplot of Y vs. X with Logical Vector Colored}
-# Set up scatterplot of Y vs. X
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_logical))
 
-# Saved scatterplot to project directory
 ggsave("Problem_2_Scatterplot.pdf", height = 4, width = 6)
 
 ```
 
-A scatterplot of `y` vs `x` was created that color points using `vec_numerical`.
+A scatterplot of `y` vs `x` was created that color points using `vec_numerical`. The color scale on this scatterplot demonstrates that numerical vectors can be colored according to a gradient scale.
 
 ```{r Scatterplot of Y vs. X with Numeric Vector Colored}
+ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_numerical))
 
 ```
 
+A scatterplot of `y` vs `x` was created that color points using `vec_factor`. The color scale on this scatterplot is similar to that of the logical vector with two possible values, showing that factor variables color similar to logical vectors. 
 
-A scatterplot of `y` vs `x` was created that color points using `vec_factor`.
+```{r Scatterplot of Y vs. X with Factor Vector Colored}
+ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_factor))
+
+```
+
