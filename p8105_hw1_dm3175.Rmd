@@ -26,14 +26,14 @@ Variable Name  |  Definition
 
 Next, a **data frame** was created containing the variables listed above:
 
-```{r include = FALSE}
+```{r Setup, include = FALSE}
 # Load relevant package
 
 library(tidyverse)
 
 ```
 
-```{r}
+```{r Create Data Frame}
 # Seed is set to ensure reproducibility 
 set.seed(1234)
 
@@ -49,7 +49,7 @@ problem_1_df = tibble (
 
 Next, an attempt at taking the **mean** of each variable was executed: 
 
-```{r}
+```{r Mean of All Variables}
 mean(problem_1_df$uniform_dist)
 mean(problem_1_df$greater_than_two)
 mean(problem_1_df$fruit_type)
@@ -61,7 +61,27 @@ The mean can be successfully taken on both the "uniform_dist" variable because i
 
 ## Part 2: Conversion of variables to different types
 
-Next, the logical, character, and factor variables were converted to numerical variables using the ` as.numeric` function. 
+Next, the logical, character, and factor variables were converted to numerical variables using the ` as.numeric` function. The `as.numeric` function works successfully to convert logical ("greater_than_two") and factor ("fruit_condition") variables to numerical form. The function produces an error when applied directly to a character ("fruit_type") variable because the code needs further specification on how to code the character values as numbers. 
+
+```{r Converting Variable Types, results = 'hide', warning=FALSE}
+as.numeric(problem_1_df$greater_than_two)
+as.numeric(problem_1_df$fruit_type)
+as.numeric(problem_1_df$fruit_condition)
+
+```
+
+To convert the character variable into a numerical variable, the character variable ("fruit_type") was first converted into a factor variable and then numerical. Similarly, the factor variable ("fruit_condition") was converted into a character
+
+```{r Factor and Character Variable Conversions, warning=FALSE}
+# Conversion of "fruit_type" to factor then numerical
+factor_fruit_type = as.factor(problem_1_df$fruit_type)
+numeric_fruit_type = as.numeric(factor_fruit_type)
+
+# Conversion of "fruit_condition" to character then numerical
+char_fruit_condition = as.character(problem_1_df$fruit_condition)
+numeric_fruit_condition = as.numeric(char_fruit_condition)
+
+```
 
 # Problem 2
 
