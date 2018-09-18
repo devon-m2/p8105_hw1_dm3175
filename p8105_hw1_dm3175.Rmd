@@ -26,14 +26,14 @@ Variable Name  |  Definition
 
 Next, a **data frame** was created containing the variables listed above:
 
-```{r Setup, include = FALSE}
+```{r Setup Problem 1, include = FALSE}
 # Load relevant package
 
 library(tidyverse)
 
 ```
 
-```{r Create Data Frame}
+```{r Create Data Frame Problem 1}
 # Seed is set to ensure reproducibility 
 set.seed(1234)
 
@@ -85,3 +85,44 @@ numeric_fruit_condition = as.numeric(char_fruit_condition)
 
 # Problem 2
 
+The goal of problem 2 is to plot and use inline R code. 
+
+## Part 1: Naming Variables and Creation of Data Frame
+
+The following variables and corresponding interpretation will be considered for problem 2:
+
+
+Variable Name  |  Definition
+---------------|---------------------------------------------------------
+**x**         | a random sample of size 1000 from a standard normal distribution
+**y**         | a random sample of size 1000 from a standard normal distribution
+**vec_logical** | a logical vector indicating whether x + y > 0
+**vec_numerical** | a numeric vector created by coercing the logical vector "vec_logical"
+**vec_factor** | a factor vector created by coercing the logical vector "vec_logical"
+
+Next, a **data frame** was created containing the variables listed above:
+
+```{r Setup Problem 2, include = FALSE}
+# Load relevant package
+
+library(tidyverse)
+
+```
+
+```{r Create Data Frame Problem 2}
+# Seed is set to ensure reproducibility 
+set.seed(12345)
+
+# Create data frame 
+problem_2_df = tibble (
+  x = rnorm(1000),
+  y = rnorm(1000),
+  vec_logical = x + y > 0,
+  vec_numerical = as.numeric(vec_logical),
+  vec_factor = as.factor(vec_logical)
+)
+
+```
+
+
+## Part 2: Scatterplots of Data Frame
