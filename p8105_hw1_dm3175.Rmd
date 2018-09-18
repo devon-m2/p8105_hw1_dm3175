@@ -5,19 +5,27 @@ date: "9/17/2018"
 output: github_document
 ---
 
-I'm an R Markdown document! 
+# Background
 
-# Section 1
+This file contains the solutions to Homework 1 assignment for Data Science I (P8105). The due date for Homework 1 is 9/21/2018.
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+# Problem 1
 
-```{r}
-samp = rnorm(100)
-length(samp)
-```
+The goal of problem 1 is to explore variable types and coercion. 
 
-# Section 2
+## Part 1: Naming Variables and Creation of Data Frame
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+The following variables and corresponding interpretation will be considered for Problem 1: 
+
+Variable Name  |  Definition
+---------------|---------------------------------------------------------
+**uniform_dist**| A random sample of size 10 from uniform [0,5] distribution
+**vec_logical** | A logical vector indicating whether elements of the sample are greater than 2
+**vec_char** | A length-10 character vector
+**vec_factor** | A length-10 factor vector
+
+
+## Part 2: Conversion of variables to different types
+
+# Problem 2
+
