@@ -15,7 +15,7 @@ The goal of problem 1 is to explore variable types and coercion.
 
 ## Part 1: Naming Variables and Creation of Data Frame
 
-The following variables and corresponding interpretation will be considered for Problem 1. For this example, fruit types and condition (Good or Bad) were used:
+The following variables and corresponding interpretation will be considered for Problem 1. For this example, fruit types and condition ("good" or "bad") were used:
 
 Variable Name  |  Definition
 ---------------|---------------------------------------------------------
@@ -26,14 +26,14 @@ Variable Name  |  Definition
 
 Next, a **data frame** was created containing the variables listed above:
 
-```{r Setup Problem 1, include = FALSE}
+```{r setup problem 1, include = FALSE}
 # Load relevant package
 
 library(tidyverse)
 
 ```
 
-```{r Create Data Frame Problem 1}
+```{r create data frame problem 1}
 # Seed is set to ensure reproducibility 
 set.seed(1234)
 
@@ -51,7 +51,7 @@ problem_1_df = tibble (
 
 Next, an attempt at taking the **mean** of each variable was executed: 
 
-```{r Mean of All Variables}
+```{r mean of all variables}
 mean(problem_1_df$uniform_dist)
 mean(problem_1_df$greater_than_two)
 mean(problem_1_df$fruit_type)
@@ -65,7 +65,7 @@ The mean can be successfully taken on both the `uniform_dist` variable because i
 
 Next, the logical, character, and factor variables were converted to numerical variables using the ` as.numeric` function. The `as.numeric` function works successfully to convert logical (`greater_than_two`) and factor (`fruit_condition`) variables to numerical form. The function produces an error when applied directly to a character (`fruit_type`) variable because the code needs further specification on how to code the character values as numbers. 
 
-```{r Converting Variable Types, results = 'hide', warning=FALSE}
+```{r converting variable types, results = 'hide', warning=FALSE}
 as.numeric(problem_1_df$greater_than_two)
 as.numeric(problem_1_df$fruit_type)
 as.numeric(problem_1_df$fruit_condition)
@@ -74,7 +74,7 @@ as.numeric(problem_1_df$fruit_condition)
 
 To convert the character variable into a numerical variable, the character variable (`fruit_type`) was first converted into a factor variable and then numerical. Similarly, the factor variable (`fruit_condition`) was converted into a character variable and then numeric. 
 
-```{r Factor and Character Variable Conversions, warning=FALSE}
+```{r factor and character variable conversions, warning=FALSE}
 # Conversion of "fruit_type" to factor then numerical
 factor_fruit_type = as.factor(problem_1_df$fruit_type)
 numeric_fruit_type = as.numeric(factor_fruit_type)
@@ -104,14 +104,14 @@ Variable Name  |  Definition
 
 Next, a **data frame** was created containing the variables listed above:
 
-```{r Setup Problem 2, include = FALSE}
+```{r setup problem 2, include = FALSE}
 # Load relevant package
 
 library(tidyverse)
 
 ```
 
-```{r Create Data Frame Problem 2}
+```{r create data frame problem 2}
 # Seed is set to ensure reproducibility 
 set.seed(12345)
 
@@ -132,7 +132,7 @@ The data frame contains `r nrow(problem_2_df)` rows and `r ncol(problem_2_df)` c
 
 A scatterplot of `y` vs `x` was created that color points using `vec_logical`. This scatter plot was saved into the project directory. 
 
-```{r Scatterplot of Y vs. X with Logical Vector Colored}
+```{r scatterplot of Y vs. X with logical vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_logical))
 
 ggsave("Problem_2_Scatterplot.pdf", height = 4, width = 6)
@@ -141,14 +141,14 @@ ggsave("Problem_2_Scatterplot.pdf", height = 4, width = 6)
 
 A scatterplot of `y` vs `x` was created that color points using `vec_numerical`. The color scale on this scatterplot demonstrates that numerical vectors can be colored according to a gradient scale.
 
-```{r Scatterplot of Y vs. X with Numeric Vector Colored}
+```{r scatterplot of Y vs. X with numeric vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_numerical))
 
 ```
 
 A scatterplot of `y` vs `x` was created that color points using `vec_factor`. The color scale on this scatterplot is similar to that of the logical vector with two possible values, showing that factor variables color similar to logical vectors. 
 
-```{r Scatterplot of Y vs. X with Factor Vector Colored}
+```{r scatterplot of Y vs. X with factor vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_factor))
 
 ```
