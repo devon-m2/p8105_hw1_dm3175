@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_dm3175"
 author: "Devon Morgan"
-date: "9/17/2018"
+date: "9/20/2018"
 output: github_document
 ---
 
@@ -28,7 +28,6 @@ Next, a **data frame** was created containing the variables listed above:
 
 ```{r setup problem 1, include = FALSE}
 # Load relevant package
-
 library(tidyverse)
 
 ```
@@ -59,11 +58,11 @@ mean(problem_1_df$fruit_condition)
 
 ```
 
-The mean can be successfully taken on both the `uniform_dist` variable because it is numerical and the `greater_than_two` variable because it is a logical variable. The logical variable codes "TRUE" responses as 1 and "FALSE" responses as 0, which allows the mean to be interpreted as the proportion of "TRUE" values in the dataset. The mean cannot be taken of `fruit_type` or `fruit_condition` because these variables are character and factor variables, respectively, which do not allow for a numeric mean to be computed. 
+The mean can be successfully taken on both the `uniform_dist` variable because it is numerical and the `greater_than_two` variable because it is a logical variable. The logical variable codes "TRUE" responses as 1 and "FALSE" responses as 0, which allows the mean to be interpreted as the proportion of "TRUE" values in the dataset. The mean cannot be taken of `fruit_type` or `fruit_condition` because these variables are character and factor variables, respectively, which do not allow for a numeric mean to be computed (note the error message produced).
 
 ## Part 3: Conversion of variables to different types
 
-Next, the logical, character, and factor variables were converted to numerical variables using the ` as.numeric` function. The `as.numeric` function works successfully to convert logical (`greater_than_two`) and factor (`fruit_condition`) variables to numerical form. The function produces an error when applied directly to a character (`fruit_type`) variable because the code needs further specification on how to code the character values as numbers. 
+Next, the logical, character, and factor variables were converted to numerical variables using the ` as.numeric` function. The `as.numeric` function works successfully to convert logical (`greater_than_two`) and factor (`fruit_condition`) variables to numerical form. The function produces an error when applied directly to a character (`fruit_type`) variable because the code needs further specification on how to code the character values as numbers (i.e., it does not automatically know what numerical value to assign to what characters). 
 
 ```{r converting variable types, results = 'hide', warning=FALSE}
 as.numeric(problem_1_df$greater_than_two)
@@ -84,6 +83,8 @@ char_fruit_condition = as.character(problem_1_df$fruit_condition)
 numeric_fruit_condition = as.numeric(char_fruit_condition)
 
 ```
+
+The conversion of character variable to factor variable and then numerical variable works successfully, as there is an intermediate step converting to a factor variable prior to numerical. Changing the order from factor variable to character to numeric does not work (similar to above, the code needs further specification on how to code the character variable into numerical). **In sum, the order of converting variables matters.** 
 
 # Problem 2
 
@@ -106,7 +107,6 @@ Next, a **data frame** was created containing the variables listed above:
 
 ```{r setup problem 2, include = FALSE}
 # Load relevant package
-
 library(tidyverse)
 
 ```
@@ -146,7 +146,7 @@ ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_numerical))
 
 ```
 
-A scatterplot of `y` vs `x` was created that color points using `vec_factor`. The color scale on this scatterplot is similar to that of the logical vector with two possible values, showing that factor variables color similar to logical vectors. 
+A scatterplot of `y` vs `x` was created that color points using `vec_factor`. The color scale on this scatterplot is similar to that of the logical vector with two possible colors, showing that factor variables color similar to logical vectors.
 
 ```{r scatterplot of Y vs. X with factor vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_factor))
