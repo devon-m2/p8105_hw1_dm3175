@@ -132,7 +132,8 @@ The data frame contains `r nrow(problem_2_df)` rows and `r ncol(problem_2_df)` c
 
 A scatterplot of `y` vs `x` was created that color points using `vec_logical`. This scatter plot was saved into the project directory. 
 
-```{r scatterplot of Y vs. X with logical vector colored}
+
+```{r scatterplot Y vs. X with logical vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_logical))
 
 ggsave("Problem_2_Scatterplot.pdf", height = 4, width = 6)
@@ -141,15 +142,17 @@ ggsave("Problem_2_Scatterplot.pdf", height = 4, width = 6)
 
 A scatterplot of `y` vs `x` was created that color points using `vec_numerical`. The color scale on this scatterplot demonstrates that numerical vectors can be colored according to a gradient scale.
 
-```{r scatterplot of Y vs. X with numeric vector colored}
+
+```{r scatterplot Y vs. X with numeric vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_numerical))
 
 ```
 
 A scatterplot of `y` vs `x` was created that color points using `vec_factor`. The color scale on this scatterplot is similar to that of the logical vector with two possible colors, showing that factor variables color similar to logical vectors.
 
-```{r scatterplot of Y vs. X with factor vector colored}
+```{r scatterplot Y vs. X with factor vector colored}
 ggplot(problem_2_df, aes(x = x, y = y)) + geom_point(aes(color = vec_factor))
 
 ```
+
 
